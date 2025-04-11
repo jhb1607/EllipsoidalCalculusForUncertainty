@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+env/
+venv/
+.env
+.venv
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.dvi
+*.pdf
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+
+# Keep final PDF
+!thesis.pdf
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Data files
+*.csv
+*.json
+*.pkl
+*.npy
+
+# Figures
+*.png
+*.jpg
+*.svg
