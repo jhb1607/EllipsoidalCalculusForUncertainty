@@ -11,7 +11,7 @@ This project explores possibility theory for describing imprecise probabilities 
 - **Hyperellipsoidal Representation:**  
   Uses nested (hyper-)ellipsoids (defined by a center vector and a positive semi-definite matrix) to capture directional uncertainty and correlations—offering advantages over interval boxes and polytopes.
 
-## Project Goals
+## Goals
 - **Investigate** the effectiveness of hyperellipsoids in representing possibility distributions.
 - **Develop Algorithms** for:
   - **Inference:** Deriving distributions from data.
