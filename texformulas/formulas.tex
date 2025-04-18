@@ -1,0 +1,93 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Formula Collection: Ellipsoidal Calculus}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Notation}
+\begin{align}
+\det(\mathbf{A}) &\quad \text{Determinant of $\mathbf{A}$.} \\
+\langle\mathbf{A}\rangle &\quad \text{Subspace spanned by the rows of $\mathbf{A}$.} \\
+\langle\cdot\rangle^{\perp} &\quad \text{Orthogonal subspace to that of $\langle\cdot\rangle$.} \\
+\sqrt{x} &\quad \text{Positive square root of $x$.}
+\end{align}
+
+\section{Ellipsoids}
+
+A real $n$-dimensional ellipsoid, centered on $\mathbf{c}$, can be concisely described as
+\begin{equation}
+\varepsilon_n(\mathbf{c}, \mathbf{E}) = \{\mathbf{x} \in \mathbb{R}^n \mid (\mathbf{x}-\mathbf{c}_0)^T\mathbf{E}(\mathbf{x}-\mathbf{c}_0) \leq 1\}
+\end{equation}
+where $\mathbf{E}$ is a positive-semidefinite symmetric $n \times n$ matrix. 
+
+$\mathbf{E}$ can be diagonalized into the form $\mathbf{E} = \mathbf{U} \cdot \text{diag}(\lambda_1,\ldots,\lambda_n) \cdot \mathbf{U}^T$, 
+where $\lambda_1, \ldots, \lambda_n$ are the eigenvalues of $\mathbf{E}$ and the columns of $\mathbf{U}$, $\mathbf{u}_1,\ldots,\mathbf{u}_n$,
+ are the corresponding orthonormal eigenvectors. 
+ The principal axes of the ellipsoid are the directions given by $\mathbf{u}_i$, and its semiaxes lengths are given by $1/\sqrt{\lambda_i}$.
+ 
+
+\section{Volume}
+
+The volume of $\varepsilon_n(\mathbf{x}_0, \mathbf{E})$ is given by
+\begin{equation}
+\text{Vol}(\varepsilon_n(\mathbf{x}_0, \mathbf{E})) = \frac{V_n}{\sqrt{\det(\mathbf{E})}}
+\end{equation}
+where $V_n$ is the volume of the unit ball in $\mathbb{R}^n$.
+
+By definition we will assign a negative volume to imaginary ellipsoids
+\begin{equation}
+\text{Vol}(\varepsilon_n^*(\mathbf{x}_0, \mathbf{E})) = -\text{Vol}(\varepsilon_n(\mathbf{x}_0, \mathbf{E})).
+\end{equation}
+
+When $\mathbf{E}$ is singular, i.e., its rank is lower than $n$, $n - \text{rank}(\mathbf{E})$ eigenvalues are zero, the corresponding semiaxes lengths tend to infinity and so does the volume defined by (2) and (3). In this case, it is better to correspond to an ellipsoid embedded in a subspace.
+
+\section{Operations on Ellipsoids}
+
+\subsection{Scaling}
+For $\alpha > 0$, the scaled ellipsoid is:
+\begin{equation}
+\alpha \cdot \varepsilon_n(\mathbf{x}_0, \mathbf{E}) = \varepsilon_n(\mathbf{x}_0, \mathbf{E}/\alpha^2)
+\end{equation}
+
+\subsection{Affine Transformation}
+For a matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ and vector $\mathbf{b} \in \mathbb{R}^m$, the image of $\varepsilon_n$ under the affine map $f(\mathbf{x}) = \mathbf{A}\mathbf{x} + \mathbf{b}$ is:
+\begin{equation}
+f(\varepsilon_n(\mathbf{x}_0, \mathbf{E})) = \varepsilon_m(A\mathbf{x}_0 + \mathbf{b}, (\mathbf{A}\mathbf{E}^{-1}\mathbf{A}^T)^{-1})
+\end{equation}
+
+\section{Pseudoinverses}
+$\mathbf{A}^+$ is called the pseudoinverse of $\mathbf{A}$ if, and only if, $\mathbf{A}\mathbf{A}^+\mathbf{A} = \mathbf{A}$, $\mathbf{A}^+\mathbf{A}\mathbf{A}^+ = \mathbf{A}^+$, and both $\mathbf{A}\mathbf{A}^+$ and $\mathbf{A}^+\mathbf{A}$ are symmetric.
+
+Pseudoinverse matrices have the following properties:
+\begin{enumerate}
+\item If $\mathbf{A}$ is square and nonsingular, then $\mathbf{A}^+ = \mathbf{A}^{-1}$. Otherwise, there will be infinitely many $\mathbf{A}^+$.
+\item If $\mathbf{A}$ has a right inverse, then $\mathbf{A}^+$ is a right inverse. Likewise, if $\mathbf{A}$ has a left inverse, then $\mathbf{A}^+$ is a left inverse.
+\item If the system $\mathbf{A}\mathbf{x} = \mathbf{b}$ has solution, then $\mathbf{x} = \mathbf{A}^+\mathbf{b}$ is a solution.
+\end{enumerate}
+
+Pseudoinverses of ellipsoidal matrices can be easily computed from their eigenvectors since $(\mathbf{M}\mathbf{M}^T)^+ = \mathbf{M}(\mathbf{M}^T\mathbf{M})^{-1}\mathbf{M}^T$.
+
+\section{Ellipsoidal Approximations}
+
+\subsection{Minimum Volume Enclosing Ellipsoid}
+For a set of points $\{\mathbf{x}_i\}_{i=1}^m \subset \mathbb{R}^n$, the minimum volume ellipsoid containing all points solves:
+\begin{align}
+\min_{\mathbf{E} \succ 0, \mathbf{c}} &\quad \det(\mathbf{E}^{-1}) \\
+\text{s.t.} &\quad (\mathbf{x}_i-\mathbf{c})^T \mathbf{E} (\mathbf{x}_i-\mathbf{c}) \leq 1, \quad i=1,\ldots,m
+\end{align}
+
+\section{Custom Formulas}
+% Add your own equations here
+
+\end{document}

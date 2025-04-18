@@ -1,11 +1,10 @@
 function [t1, t2, t3] = benchmarkEllipseFit(P, epsilon)
-%BENCHMARKEllipseFit Measure computation time of MinVolEllipse vs. fitEllipseMoments
-%   [tMVE, tMom] = benchmarkEllipseFit(P, epsilon)
 %   P       — N×2 data points
 %   epsilon — tolerance for MinVolEllipse (default: 0.01)
 %
-%   tMVE  — elapsed time for MinVolEllipse
-%   tMom  — elapsed time for fitEllipseMoments
+%   t1  — elapsed time for MinVolEllipse
+%   t2  — elapsed time for fitEllipseMoments
+%   t3  - elapsed time for fitEllipseMomentsND
 
     if nargin < 2 || isempty(epsilon)
         epsilon = 0.01;
