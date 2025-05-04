@@ -1,4 +1,3 @@
-
 # Possibilistic Uncertainty Representation with Hyperellipsoids
 
 This project explores possibility theory for describing imprecise probabilities and quantifying uncertainty in engineering, especially where safety and decision-making under incomplete information are critical.
@@ -12,6 +11,7 @@ This project explores possibility theory for describing imprecise probabilities 
   Uses nested (hyper-)ellipsoids (defined by a center vector and a positive semi-definite matrix) to capture directional uncertainty and correlations—offering advantages over interval boxes and polytopes.
 
 ## Goals
+- Develop efficient methods to compute overlap ellipsoids (see Fusion).
 - **Investigate** the effectiveness of hyperellipsoids in representing possibility distributions.
 - **Develop Algorithms** for:
   - **Inference:** Deriving distributions from data.
@@ -21,3 +21,4 @@ This project explores possibility theory for describing imprecise probabilities 
 - **Demonstrate** practical relevance with a detailed numerical application.
 
 ---
+

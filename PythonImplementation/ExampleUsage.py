@@ -16,7 +16,9 @@ E3 = Ellipsoid(np.array([[1, 0], [0, 1]]), np.array([0, 0]))
 E3.plot(ax=ax, color="green", alpha=0.5, label="E3")
 
 # Dritte Ellipse (3D)
-E3 = 4*Ellipsoid(np.array([[1 / 9, 0, 0], [0, 1 / 4, 0], [0, 0, 1]]), np.array([0, 0, 0]))
+E3 = 4 * Ellipsoid(
+    np.array([[1 / 9, 0, 0], [0, 1 / 4, 0], [0, 0, 1]]), np.array([0, 0, 0])
+)
 E3.plot(ax=ax, color="blue", alpha=0.1, label="E2")
 
 # Formatierung

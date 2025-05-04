@@ -1,4 +1,4 @@
-function [A , c] = MinVolEllipse(P, tolerance)
+function [A , c] = MVEE(P, tolerance)
 % [A , c] = MinVolEllipse(P, tolerance)
 % Finds the minimum volume enclsing ellipsoid (MVEE) of a set of data
 % points stored in matrix P. The following optimization problem is solved: 
@@ -47,7 +47,7 @@ function [A , c] = MinVolEllipse(P, tolerance)
 % data points 
 % -----------------------------------
 P = P';
-[d N] = size(P);
+[d, N] = size(P);
 
 Q = zeros(d+1,N);
 Q(1:d,:) = P(1:d,1:N);
@@ -63,10 +63,10 @@ u = (1/N) * ones(N,1);          % 1st iteration
 
 % Khachiyan Algorithm
 % -----------------------------------
-while err > tolerance,
+while err > tolerance
     X = Q * diag(u) * Q';       % X = \sum_i ( u_i * q_i * q_i')  is a (d+1)x(d+1) matrix
     M = diag(Q' * inv(X) * Q);  % M the diagonal vector of an NxN matrix
-    [maximum j] = max(M);
+    [maximum, j] = max(M);
     step_size = (maximum - d -1)/((d+1)*(maximum-1));
     new_u = (1 - step_size)*u ;
     new_u(j) = new_u(j) + step_size;
