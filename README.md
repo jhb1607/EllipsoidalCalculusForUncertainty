@@ -1,4 +1,4 @@
-# Possibilistic Uncertainty Representation with Hyperellipsoids
+# Possibilistic Uncertainty Modeling with Hyperellipsoids
 
 This project explores possibility theory for describing imprecise probabilities and quantifying uncertainty in engineering, especially where safety and decision-making under incomplete information are critical.
 
